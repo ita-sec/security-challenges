@@ -1,4 +1,4 @@
-#!/usr/bin/environ python3
+#!/usr/bin/env python3
 
 str1 = bytes.fromhex("1c0111001f010100061a024b53535009181c")
 str2 = bytes.fromhex("686974207468652062756c6c277320657965")
