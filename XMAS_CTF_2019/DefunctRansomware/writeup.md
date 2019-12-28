@@ -7,9 +7,13 @@
 ### Solution:
 
 Looking at the text file, there are 2 variables: *n* and *e.* The challenge is a public key, so the idea is to try and break the RSA.
+
 I initially tried to factor n using [FactorDB](www.factordb.com). I found out n is in the format $n = p^2q^2$. This is uncommon, as n is usually in the format $n = pq$, because it is harder to break and easier to calculate *d*, where $ed \equiv 1 mod(\phi(n))$.
+
 Exploiting that we know *p* and *q*, the only thing left is find out $\phi(n)$.
+
 $$\phi(n) = \phi(p^ 2q^2)=\phi(p^2)\phi(q^2)=p(p-1)q(q-1)$$
+
 Therefore, $d=modinv(e,p(p-1)q(q-1))$, which can be done in a few seconds. The decoded message is simply $decoded = encoded^d mod n$. After that, convert the decoded message from hex to ASCII:
 
 >TODO
